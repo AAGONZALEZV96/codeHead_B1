@@ -1,0 +1,7 @@
+{
+  "name": "codeHead_B1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
