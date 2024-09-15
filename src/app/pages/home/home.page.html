@@ -1,14 +1,15 @@
-<ion-header>
+  <div class="header-main">
+    <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>
         <h1>CodeHead</h1>
       </ion-title>
     </ion-toolbar>
   </ion-header>
+</div>
+    
+  <ion-content class="main-content">
   <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
-  
-  <ion-content>
-  
     <ion-item>
       <ion-label> <a>Basic Item</a> </ion-label>
       <ion-label>
@@ -25,3 +26,6 @@
       </ion-label>
     </ion-item>
   </ion-content>
+  
+  <!-- menu -->
+  <app-menu />

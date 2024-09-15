@@ -21,11 +21,11 @@ import { TabsComponent } from './components/tabs/tabs.component';
             },
             
             {
-              path: 'library',
+              path: 'login',
               loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
             },
             {
-              path: 'search',
+              path: 'cotizar',
               loadChildren: () => import('./pages/cotizar/cotizar.module').then((m) => m.CotizarPageModule),
             },
           ],
