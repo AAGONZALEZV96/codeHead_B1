@@ -7,7 +7,7 @@ ion-menu::part(container) {
   
     box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
   }
-.menu-overlay {
+  .menu-overlay {
     position: fixed; 
     
     top: 0;
@@ -23,5 +23,13 @@ ion-menu::part(container) {
   
   .main-content {
     padding: 20px;
+    
+  }
+  .footer-menu {
+    margin: 0px auto;
+    color: rgb(255, 136, 0);
+    text-align: left;
+    overflow: hidden;
+    width: 60%;
     
   }
