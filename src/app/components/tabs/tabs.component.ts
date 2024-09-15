@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { addIcons } from 'ionicons';
-import { library, playCircle, radio, search } from 'ionicons/icons';
+import { calculator, library, logIn, playCircle, radio, search } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
@@ -15,9 +15,7 @@ export class TabsComponent {
      * can be registered in app.component.ts and then
      * referenced by name anywhere in your application.
      */
-    addIcons({ library, playCircle, radio, search });
+    addIcons({calculator , search, logIn });
   }
-
-  ngOnInit() {}
 
 }

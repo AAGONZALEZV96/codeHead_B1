@@ -17,17 +17,17 @@ import { TabsComponent } from './components/tabs/tabs.component';
             },
             {
               path: 'home',
-              loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+              loadChildren: () => import('./pages/home/home.module').then((m) => m.HomePageModule),
             },
             
             {
               path: 'library',
-              loadChildren: () => import('./login/login.module').then((m) => m.LoginPageModule),
+              loadChildren: () => import('./pages/login/login.module').then((m) => m.LoginPageModule),
             },
-            /* {
+            {
               path: 'search',
-              loadChildren: () => import('./search/search-page.module').then((m) => m.SearchPageModule),
-            }, */
+              loadChildren: () => import('./pages/cotizar/cotizar.module').then((m) => m.CotizarPageModule),
+            },
           ],
         },
       ]),
