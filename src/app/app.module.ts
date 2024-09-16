@@ -14,6 +14,7 @@ import { FormLComponent } from './components/form-l/form-l.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 
+
 @NgModule({
   declarations: [AppComponent, TabsComponent, Modal1Component,DropDownComponent, FormLComponent, MenuComponent ],
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
