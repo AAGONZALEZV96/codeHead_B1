@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { FormsModule } from '@angular/forms';
+import { Modal1Component } from './components/modal1/modal1.component';
+import { DropDownComponent } from './components/drop-down/drop-down.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TabsComponent, ],
+  declarations: [AppComponent, TabsComponent, Modal1Component,DropDownComponent ],
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
