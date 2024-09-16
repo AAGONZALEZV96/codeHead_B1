@@ -8,6 +8,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { MenuComponent } from './components/menu/menu.component';
+
+
+@NgModule({
+  declarations: [AppComponent, TabsComponent, MenuComponent],
+=======
 import { Modal1Component } from './components/modal1/modal1.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { FormLComponent } from './components/form-l/form-l.component';
