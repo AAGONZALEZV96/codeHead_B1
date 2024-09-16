@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { RouterModule } from '@angular/router';
-import { MenuComponent } from 'src/app/components/menu/menu.component';
+/* import { MenuComponent } from 'src/app/components/menu/menu.component'; */
 import { ServiciosComponent } from 'src/app/components/servicios/servicios.component';
 
 
@@ -15,7 +15,8 @@ import { ServiciosComponent } from 'src/app/components/servicios/servicios.compo
     IonicModule,
     RouterModule.forChild([{ path: '', component: HomePage}])
   ],
-  declarations: [HomePage, MenuComponent, ServiciosComponent],
+  declarations: [HomePage, /* MenuComponent */ ServiciosComponent],
   exports: [HomePage]
 })
 export class HomePageModule {}
+

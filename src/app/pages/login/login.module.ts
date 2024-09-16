@@ -9,7 +9,7 @@ import { FormLComponent } from 'src/app/components/form-l/form-l.component';
     IonicModule,
     RouterModule.forChild([{ path: '', component: LoginPage}])
   ],
-  declarations: [LoginPage, FormLComponent,],
+  declarations: [LoginPage,],
   exports: [LoginPage]
 })
 export class LoginPageModule {}
