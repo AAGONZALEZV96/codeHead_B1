@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { CotizarPageRoutingModule } from './cotizar-routing.module';
 
 import { CotizarPage } from './cotizar.page';
-import { Modal1Component } from 'src/app/components/modal1/modal1.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CotizarPageRoutingModule
+    CotizarPageRoutingModule,
   ],
   declarations: [CotizarPage]
   
