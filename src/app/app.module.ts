@@ -5,7 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { Modal1Component } from './components/modal1/modal1.component';
 import { DropDownComponent } from './components/drop-down/drop-down.component';
@@ -16,7 +16,7 @@ import { FormLogComponent } from './components/form-log/form-log.component';
 
 @NgModule({
   declarations: [AppComponent, TabsComponent, Modal1Component, Modal2Component,DropDownComponent, FormLComponent, MenuComponent, FormLogComponent ],
-  imports: [BrowserModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, FormsModule, IonicModule.forRoot(), AppRoutingModule,ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
