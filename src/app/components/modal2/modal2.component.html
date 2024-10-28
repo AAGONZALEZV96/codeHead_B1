@@ -10,6 +10,5 @@
 <ion-content>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <app-form-log />
-    <ion-button (click)="dismiss()" expand="block" type="submit" [disabled]="!loginForm.valid">Enviar</ion-button>
   </form>
 </ion-content>
