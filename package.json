@@ -47,6 +47,7 @@
     "@angular/language-service": "^18.2.9",
     "@capacitor/cli": "6.1.2",
     "@ionic/angular-toolkit": "^11.0.1",
+    "@types/crypto-js": "^4.2.2",
     "@types/jasmine": "~5.1.0",
     "@types/libsodium-wrappers": "^0.7.14",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

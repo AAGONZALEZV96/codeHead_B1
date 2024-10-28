@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-
+import * as CryptoJS from 'crypto-js';/* npm install --save-dev @types/crypto-js */
 
 @Component({
   selector: 'app-form-l',
@@ -32,15 +32,18 @@ export class FormLComponent implements OnInit {
   onsummit() {
     if (this.registroForm.valid) {
 
-      
+      const { nombre, apellido, direccion, rut, celular, email, password, confirmarPassword } = this.registroForm.value;
+      const encriptaPassword = CryptoJS.AES.encrypt(password,'*******').toString();/*  Encriptar la contraseña */
+
       const usuario = this.registroForm.value;/*  Obtener los datos del formulario */
       
       const usuarios = JSON.parse(localStorage.getItem('usuarios')||'[]');/*Obtener la lista actual de usuarios almacenados en el localStorage  */
+      const nuevoUsuario = { nombre, apellido, direccion, rut, celular, email, password: encriptaPassword, confirmarPassword };
+      usuarios.push(nuevoUsuario);/* Agregar el nuevo usuario a la lista */
 
-      usuarios.push(usuario);/* Agregar el nuevo usuario a la lista */
 
       localStorage.setItem('usuarios', JSON.stringify(usuarios));/* Guardar la lista actualizada en el localStorage */
-      console.log('Formulario enviado:', this.registroForm.value);
+      console.log('Formulario enviado exitosamente:', this.registroForm.value);
       this.modalController.dismiss();
     } else {
       console.log('Formulario no enviado:');

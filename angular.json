@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["crypto-js", "@types/crypto-js", "@noble/crypto", "tweetnacl"],
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
