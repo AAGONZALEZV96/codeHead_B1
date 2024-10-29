@@ -5,13 +5,20 @@ import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
   {
+    path: 'intro',
+    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
     path: '',
+    /* Componente principal que contiene las pestañas */
     component: TabsComponent,
+
     children: [
       {
         path: '',
+        redirectTo: '/intro',
         pathMatch: 'full',
-        redirectTo: 'home',
+
       },
       {
         path: 'home',
@@ -25,12 +32,16 @@ const routes: Routes = [
         path: 'cotizar',
         loadChildren: () => import('./pages/cotizar/cotizar.module').then((m) => m.CotizarPageModule),
       },
+      
     ],
   },
+  
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

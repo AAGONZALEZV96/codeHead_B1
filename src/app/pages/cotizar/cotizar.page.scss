@@ -1,7 +1,12 @@
-h2 {
-    text-align: center;
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center;     /* Centra el contenido horizontalmente */
+  height: 100%;            /* Asegura que el contenedor ocupe todo el espacio disponible */
+  text-align: center;
 }
-h1 {
-    font-size: 35px;
-    text-align: center;
+
+strong{
+  font-size: 35px;
 }

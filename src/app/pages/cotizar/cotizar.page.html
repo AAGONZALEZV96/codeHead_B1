@@ -1,70 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="titulo-cotizar">
-    <ion-title><h1>Cotizar</h1></ion-title>
+<ion-header class="header-main ion-text-center" mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <strong>Cotizar</strong>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="main-content ion-text-center" fullscreen>
+  <div class="glass-content ">
 
-<ion-content [fullscreen]="true">
+    <div class="dimeciones">
+      <h2>Indique dimensiones del envío</h2>
 
-  <div>
-    <h2>Indique dimensiones del envío</h2>
-    <ion-list>
       <ion-item>
         <ion-input label="Largo (cm)"></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-list>
       <ion-item>
         <ion-input label="Ancho (cm)"></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-list>
       <ion-item>
         <ion-input label="Longitud (cm)"></ion-input>
       </ion-item>
-    </ion-list>
 
-  </div>
-  
-  <div>
-    <h2>Indique origen del envío</h2>
-    <ion-item>
-      <ion-label>Region</ion-label>
-      <ion-select placeholder="Selecciona una ciudad">
-        <ion-select-option value="Región Metropolitana">Región Metropolitana </ion-select-option>
-      </ion-select>
 
-    </ion-item>
-    <ion-item>
-      <ion-label>Comuna</ion-label>
-      <ion-select placeholder="Selecciona una ciudad">
-        <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
-        <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
-        <ion-select-option value="El Bosque">El Bosque</ion-select-option>
-        <ion-select-option value="Estación Central">Estación Central</ion-select-option>
-        <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>
+    </div>
 
-  <div>
-    <h2>Indique destino del envío</h2>
-    <ion-item>
-      <ion-label>Region</ion-label>
-      <ion-select placeholder="Selecciona una ciudad">
-        <ion-select-option value="Región Metropolitana">Región Metropolitana</ion-select-option>
-      </ion-select>
+    <div class="origen-envio">
+      <h2>Indique origen del envío</h2>
+      <ion-item>
+        <ion-label>Region</ion-label>
+        <ion-select placeholder="Selecciona una ciudad">
+          <ion-select-option value="Región Metropolitana">Región Metropolitana </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Comuna</ion-label>
+        <ion-select placeholder="Selecciona una ciudad">
+          <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
+          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+          <ion-select-option value="El Bosque">El Bosque</ion-select-option>
+          <ion-select-option value="Estación Central">Estación Central</ion-select-option>
+          <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
 
-    </ion-item>
-    <ion-item>
-      <ion-label>Comuna</ion-label>
-      <ion-select placeholder="Selecciona una ciudad">
-        <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
-        <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
-        <ion-select-option value="El Bosque">El Bosque</ion-select-option>
-        <ion-select-option value="Estación Central">Estación Central</ion-select-option>
-        <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <div class="destino-envio">
+      <h2>Indique destino del envío</h2>
+      <ion-item>
+        <ion-label>Region</ion-label>
+        <ion-select placeholder="Selecciona una ciudad">
+          <ion-select-option value="Región Metropolitana">Región Metropolitana</ion-select-option>
+        </ion-select>
+
+      </ion-item>
+      <ion-item>
+        <ion-label>Comuna</ion-label>
+        <ion-select placeholder="Selecciona una ciudad">
+          <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
+          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
+          <ion-select-option value="El Bosque">El Bosque</ion-select-option>
+          <ion-select-option value="Estación Central">Estación Central</ion-select-option>
+          <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
   </div>
 </ion-content>

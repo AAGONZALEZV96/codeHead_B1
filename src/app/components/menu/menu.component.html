@@ -1,7 +1,7 @@
 <ion-menu contentId="main-content">
   <div class="header-main">
     <ion-header>
-      <ion-toolbar color="tertiary">
+      <ion-toolbar>
         <ion-title>
           <h1>Menu</h1>
         </ion-title>
@@ -9,8 +9,8 @@
     </ion-header>
   </div>
 
-  <ion-content class="ion-padding">
-    <ion-list >
+  <ion-content class="ion-padding ion-text-center">
+    <ion-list>
       <ion-item (click)="cerrarMenu()" routerLink="/home" routerDirection="root">
         <ion-label>
           Inicio
@@ -34,7 +34,9 @@
 
   <ion-footer>
     <div class="footer-menu">
-      <div> <span><ion-icon class="icons" name="logo-whatsapp"></ion-icon> +56 9 89 537 233</span></div>
+      <div> <span>
+          <ion-icon class="icons" name="logo-whatsapp"></ion-icon> +56 9 89 537 233</span>
+      </div>
       <div> <span><ion-icon></ion-icon> Versión 0.001</span></div>
       <br>
     </div>
