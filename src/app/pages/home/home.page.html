@@ -8,8 +8,13 @@
 <ion-content class="main-content">
   
   <div class="glass-content">    
+    
     <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
-    <app-servicios />
+    
+    <div class="gobalServicio">
+      <app-servicios />
+    </div>
+    
     <div class="card">
       @for (item of items; track item.id) {
         <ion-card>
