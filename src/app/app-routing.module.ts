@@ -32,9 +32,14 @@ const routes: Routes = [
         path: 'cotizar',
         loadChildren: () => import('./pages/cotizar/cotizar.module').then((m) => m.CotizarPageModule),
       },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
       
     ],
   },
+
   
 
 
