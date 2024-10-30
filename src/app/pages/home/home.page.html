@@ -5,15 +5,29 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
 <ion-content class="main-content">
-  <div class="glass-content">
-
-    
-    
+  <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
+  <div class="glass-content">    
     <app-servicios />
-    
+    <div>
+      @for (item of items; track item.id) {
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{item.email}}</ion-card-subtitle>
+            <ion-card-title>{{item.name.first}} {{item.name.last}}</ion-card-title>
+            <span> <img src="{{item.picture.large}}" alt="Imagen de persona"></span>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <h3>{{item.location.city}} {{item.location.country}}</h3> 
+            La app de tarificador ha transformado nuestra experiencia al ofrecer un servicio de cálculo de tarifas eficiente y preciso. 
+            Con esta herramienta, nuestros clientes pueden obtener estimaciones claras y detalladas en tiempo real, lo que les permite tomar decisiones informadas sin demoras. 
+            Además, la interfaz intuitiva de la app hace que todo el proceso sea rápido y accesible para cualquier usuario, independientemente de su experiencia con la tecnología. 
+            En pocas palabras, la app de tarificador refleja nuestro compromiso de ofrecer un servicio de alta calidad, orientado a la satisfacción y transparencia para nuestros clientes.
+          </ion-card-content>
+        </ion-card>
+      }
+    </div>
   </div>
 
 </ion-content>  

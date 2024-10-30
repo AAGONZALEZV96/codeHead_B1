@@ -4,6 +4,8 @@ import { HomePage } from './home.page';
 import { RouterModule, Routes} from '@angular/router';
 /* import { MenuComponent } from 'src/app/components/menu/menu.component'; */
 import { ServiciosComponent } from 'src/app/components/servicios/servicios.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiPersonasService } from 'src/app/servis/api-personas.service';
 
 const routes: Routes = [
   {
@@ -16,10 +18,12 @@ const routes: Routes = [
 @NgModule({
   imports: [
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ],
   declarations: [HomePage, /* MenuComponent */ ServiciosComponent],
-  exports: [HomePage]
+  exports: [HomePage],
+  providers: [ApiPersonasService]
 })
 export class HomePageModule {}
 
