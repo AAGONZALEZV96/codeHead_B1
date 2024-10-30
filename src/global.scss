@@ -37,6 +37,10 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 
 /* componente iconos home */
+*{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
 .example-content {
     display: flex;
     align-items: center;

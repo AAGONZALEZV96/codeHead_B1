@@ -6,10 +6,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="main-content">
-  <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
+  
   <div class="glass-content">    
+    <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
     <app-servicios />
-    <div>
+    <div class="card">
       @for (item of items; track item.id) {
         <ion-card>
           <ion-card-header>
@@ -29,5 +30,4 @@
       }
     </div>
   </div>
-
 </ion-content>  
