@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/autenticador.service';
 
 @Component({
   selector: 'app-perfil',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+  usuario: any;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    const infoUsuario = localStorage.getItem('authUsuario');
+    if (infoUsuario) {
+      this.usuario = JSON.parse(infoUsuario);
+      console.log('usuaio cargado de local storage:', this.usuario);
+    }
+    
+   /*  // Obtener los datos del usuario autenticado
+    this.usuario = this.authService.obtenerUsuarioAutenticado(); */
   }
-
+  cerrarSesion() {
+    localStorage.removeItem('authUsuario');
+    this.router.navigate(['/login']);
+  }
 }

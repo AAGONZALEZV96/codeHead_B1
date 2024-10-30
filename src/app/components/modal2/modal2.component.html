@@ -7,8 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <app-form-log />
-  </form>
+<ion-content class="main-content">
+  <div class="glass-content">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <app-form-log />
+    </form>
+  </div>
 </ion-content>

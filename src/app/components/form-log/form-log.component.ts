@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/autenticador.service';
 
 @Component({
   selector: 'app-form-log',
@@ -7,37 +9,65 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormLogComponent implements OnInit {
   correo: string = '';  // Variable para almacenar el correo ingresado
-  contrasena: string = '';  // Variable para almacenar la contraseña ingresada
+  password: string = '';  // Variable para almacenar la contraseña ingresada
   mensajeError: string | null = null;  // Mensaje de error en caso de credenciales incorrectas
 
-  constructor() {}
+  constructor(private autenticador: AuthService, private router: Router) { }
+  ngOnInit() {
+    
+  }
 
-  ngOnInit() {}
 
-  iniciarSesion() {
-    // Obtener los usuarios almacenados en localStorage
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
-    // Verificar si el usuario existe con el correo y la contraseña ingresados
-    const usuarioEncontrado = usuarios.find((usuario: { email: string; password: string; }) => {
-      return usuario.email === this.correo && usuario.password === this.encriptarContrasena(this.contrasena);
-    });
+  /* iniciarSesion() {
 
-    // Si se encuentra el usuario, se realiza el inicio de sesión
-    if (usuarioEncontrado) {
-      console.log('Inicio de sesión exitoso:', usuarioEncontrado);
-      this.mensajeError = null; // Limpiar el mensaje de error
-      // Aquí puedes redirigir al usuario a otra página o realizar otra acción
+    if (this.autenticador.verificarCredenciales(this.correo, this.password)) {
+
+      const usuarioAutenticado = this.autenticador.obtenerUsuarioAutenticado();
+      this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado);
+      
+      this.mensajeError = null;
+      console.log('Inicio de sesión exitoso:', usuarioAutenticado);
+      // Redirigir al perfil o realizar otra acción
+
+      this.router.navigate(['/perfil']);
+
     } else {
-      this.mensajeError = 'Credenciales incorrectas'; // Mostrar mensaje de error
+      // Credenciales incorrectas
+      this.mensajeError = 'Credenciales incorrectas';
       console.log('Credenciales incorrectas');
     }
   }
+  ngOnInit() {
+    
+   }
+} */
+  iniciarSesion() {
+    if (this.autenticador.verificarCredenciales(this.correo, this.password)) {
+      const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
-  // Método para encriptar la contraseña
-  encriptarContrasena(contrasena: string): string {
-    const claveSecreta = 'my_secret_key';
-    return CryptoJS.AES.encrypt(contrasena, claveSecreta).toString();
+      // Obtener el usuario que coincide con las credenciales
+      const usuarioAutenticado = usuarios.find((usuario: { email: string }) => usuario.email === this.correo);
+
+      if (usuarioAutenticado) {
+        this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado); // Ahora esto debería funcionar
+        this.mensajeError = null;
+        console.log('Inicio de sesión exitoso:', usuarioAutenticado);
+
+        // Redirigir al perfil o realizar otra acción
+        this.router.navigate(['/perfil']);
+      } else {
+        this.mensajeError = 'Usuario no encontrado'; // Manejo de error si no se encuentra el usuario
+      }
+    } else {
+      // Credenciales incorrectas
+      this.mensajeError = 'Credenciales incorrectas';
+      console.log('Credenciales incorrectas');
+    }
+  }
+  cerrarSesion() {
+    localStorage.removeItem('authUsuario'); // Elimina el usuario autenticado del local storage
   }
 }
+
 

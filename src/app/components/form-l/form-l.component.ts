@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import * as CryptoJS from 'crypto-js';
+import { AuthService } from 'src/app/services/autenticador.service';
 
 @Component({
   selector: 'app-form-l',
@@ -13,7 +14,8 @@ export class FormLComponent implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.registroForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
@@ -53,11 +55,10 @@ export class FormLComponent implements OnInit {
   onSubmit() {
     if (this.registroForm.valid) {
       const { nombre, apellido, direccion, rut, celular, email, password } = this.registroForm.value;
-      const claveSecreta = 'my_secret_key';
 
-      // Encriptar la contraseña
-      const encriptaPassword = CryptoJS.AES.encrypt(password, claveSecreta).toString();
-      console.log("Contraseña encriptada:", encriptaPassword);
+      // Generar hash de la contraseña en lugar de encriptarla
+      const hashedPassword = this.authService.hashearPassword(password);
+      console.log("Contraseña hasheada:", hashedPassword);
 
       // Obtener usuarios existentes del local storage
       const usuarios: { email: string; rut: string; password: string; }[] = JSON.parse(localStorage.getItem('usuarios') || '[]');
@@ -65,7 +66,7 @@ export class FormLComponent implements OnInit {
       // Comprobar duplicados de RUT y email
       const correoExistente = usuarios.some((usuario: { email: string }) => usuario.email === email);
       const rutExistente = usuarios.some((usuario: { rut: string }) => usuario.rut === rut);
-      
+
       if (correoExistente) {
         console.log('El correo ya está registrado');
         return;
@@ -76,13 +77,13 @@ export class FormLComponent implements OnInit {
         return;
       }
 
-      // Crear un nuevo usuario con la contraseña encriptada
-      const nuevoUsuario = { nombre, apellido, direccion, rut, celular, email, password: encriptaPassword };
+      // Crear un nuevo usuario con la contraseña hasheada
+      const nuevoUsuario = { nombre, apellido, direccion, rut, celular, email, password: hashedPassword };
       usuarios.push(nuevoUsuario);
-      
+
       // Guardar la lista actualizada de usuarios en el local storage
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
-      
+
       // Mostrar en consola solo la información relevante, excluyendo la contraseña
       console.log('Formulario enviado exitosamente:', {
         nombre,
@@ -92,10 +93,11 @@ export class FormLComponent implements OnInit {
         celular,
         email
       });
-      
+
       this.modalController.dismiss();
     } else {
       console.log('Formulario no válido');
     }
   }
 }
+
