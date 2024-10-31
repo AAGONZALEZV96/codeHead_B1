@@ -2,12 +2,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-export interface api {
+interface UsuarioRandom {
   results: Result[]
   info: Info
 }
 
-export interface Result {
+interface Result {
   gender: string
   name: Name
   location: Location
@@ -22,13 +22,13 @@ export interface Result {
   nat: string
 }
 
-export interface Name {
+interface Name {
   title: string
   first: string
   last: string
 }
 
-export interface Location {
+interface Location {
   street: Street
   city: string
   state: string
@@ -38,22 +38,22 @@ export interface Location {
   timezone: Timezone
 }
 
-export interface Street {
+interface Street {
   number: number
   name: string
 }
 
-export interface Coordinates {
+interface Coordinates {
   latitude: string
   longitude: string
 }
 
-export interface Timezone {
+interface Timezone {
   offset: string
   description: string
 }
 
-export interface Login {
+interface Login {
   uuid: string
   username: string
   password: string
@@ -63,28 +63,28 @@ export interface Login {
   sha256: string
 }
 
-export interface Dob {
+interface Dob {
   date: string
   age: number
 }
 
-export interface Registered {
+interface Registered {
   date: string
   age: number
 }
 
-export interface Id {
+interface Id {
   name: string
   value: string
 }
 
-export interface Picture {
+interface Picture {
   large: string
   medium: string
   thumbnail: string
 }
 
-export interface Info {
+interface Info {
   seed: string
   results: number
   page: number
@@ -99,8 +99,8 @@ export class ApiPersonasService {
   private url = 'https://randomuser.me/api';
 
   constructor(private http: HttpClient) { }
-    obtenerDatosPersonas():Observable<api>{
+    obtenerDatosPersonas():Observable<UsuarioRandom>{
 
-      return this.http.get<api>(this.url);
+      return this.http.get<UsuarioRandom>(this.url);
     }
 }

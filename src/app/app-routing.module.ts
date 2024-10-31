@@ -4,10 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
-  {
-    path: 'intro',
-    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
-  },
+  
   {
     path: '',
     /*  contiene las pestañas */
@@ -16,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/intro',
+        redirectTo: '',
         pathMatch: 'full',
 
       },
