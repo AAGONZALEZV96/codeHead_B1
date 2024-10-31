@@ -22,8 +22,6 @@ export class PerfilPage implements OnInit {
       console.log('usuaio cargado de local storage:', this.usuario);
     }
     
-   /*  // Obtener los datos del usuario autenticado
-    this.usuario = this.authService.obtenerUsuarioAutenticado(); */
   }
   cerrarSesion() {
     localStorage.removeItem('authUsuario');

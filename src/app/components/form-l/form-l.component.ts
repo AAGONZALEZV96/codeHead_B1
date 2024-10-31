@@ -21,7 +21,7 @@ export class FormLComponent implements OnInit {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      rut: ['', [Validators.required, this.rutValidator]],
+      rut: ['', [Validators.required, this.rutValidador]],
       celular: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, this.passwordValidator]],
@@ -31,21 +31,18 @@ export class FormLComponent implements OnInit {
 
   ngOnInit() {}
 
-  // Método de validación para el RUT
-  rutValidator(control: any) {
-    const rutRegex = /^[0-9]{8}-[0-9kK]{1}$/; // Formato: 00000000-0 o 00000000-k
-    const validRut = rutRegex.test(control.value);
+ 
+  rutValidador(control: any) {
+    const rutRest = /^[0-9]{8}-[0-9kK]{1}$/; 
+    const validRut = rutRest.test(control.value);
     return validRut ? null : { invalidRut: true };
   }
-
-  // Método de validación para la contraseña
   passwordValidator(control: any) {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,8}$/; // Al menos 1 mayúscula, 1 número, 6-8 caracteres
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,8}$/;
     const validPassword = passwordRegex.test(control.value);
     return validPassword ? null : { invalidPassword: true };
   }
 
-  // Validar que las contraseñas coincidan
   passwordsMatch(group: FormGroup) {
     const password = group.get('password')?.value;
     const confirmarPassword = group.get('confirmarPassword')?.value;
@@ -56,14 +53,12 @@ export class FormLComponent implements OnInit {
     if (this.registroForm.valid) {
       const { nombre, apellido, direccion, rut, celular, email, password } = this.registroForm.value;
 
-      // Generar hash de la contraseña en lugar de encriptarla
       const hashedPassword = this.authService.hashearPassword(password);
       console.log("Contraseña hasheada:", hashedPassword);
 
-      // Obtener usuarios existentes del local storage
       const usuarios: { email: string; rut: string; password: string; }[] = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
-      // Comprobar duplicados de RUT y email
+    
       const correoExistente = usuarios.some((usuario: { email: string }) => usuario.email === email);
       const rutExistente = usuarios.some((usuario: { rut: string }) => usuario.rut === rut);
 
@@ -76,15 +71,12 @@ export class FormLComponent implements OnInit {
         console.log('El RUT ya está registrado');
         return;
       }
-
-      // Crear un nuevo usuario con la contraseña hasheada
       const nuevoUsuario = { nombre, apellido, direccion, rut, celular, email, password: hashedPassword };
       usuarios.push(nuevoUsuario);
 
-      // Guardar la lista actualizada de usuarios en el local storage
+    
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-      // Mostrar en consola solo la información relevante, excluyendo la contraseña
       console.log('Formulario enviado exitosamente:', {
         nombre,
         apellido,

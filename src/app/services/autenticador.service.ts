@@ -17,25 +17,26 @@ interface Usuario {
 export class AuthService {
   constructor() {}
 
-  // Método para hashear la contraseña
+
   hashearPassword(password: string): string {
     return CryptoJS.SHA256(password).toString();
   }
 
-  verificarCredenciales(correo: string, password: string): boolean {
+  verificarCredenciales(email: string, password: string): boolean {
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    const passwordHasheada = this.hashearPassword(password); // Hasheamos la contraseña ingresada
+
+    const passwordHasheada = this.hashearPassword(password); 
     return usuarios.some((usuario: { email: string; password: string }) =>
-      usuario.email === correo && usuario.password === passwordHasheada // Comparamos el hash
+      usuario.email === email && usuario.password === passwordHasheada 
     );
   }
 
   guardarUsuarioAutenticado(usuario: Usuario) {
-    localStorage.setItem('authUsuario', JSON.stringify(usuario)); // Guardamos el usuario en el local storage
+    localStorage.setItem('authUsuario', JSON.stringify(usuario)); 
   }
 
   obtenerUsuarioAutenticado(): Usuario | null {
-    return JSON.parse(localStorage.getItem('authUsuario') || 'null'); // Obtenemos el usuario del local storage
+    return JSON.parse(localStorage.getItem('authUsuario') || 'null');
   }
 }
 

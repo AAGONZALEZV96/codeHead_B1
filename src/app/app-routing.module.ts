@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    /* Componente principal que contiene las pestañas */
+    /*  contiene las pestañas */
     component: TabsComponent,
 
     children: [

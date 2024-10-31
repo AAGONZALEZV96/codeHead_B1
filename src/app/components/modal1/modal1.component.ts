@@ -15,10 +15,10 @@ export class Modal1Component implements OnInit {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      rut: ['', [Validators.required,/*  Validators.minLength(8) */]],
-      celular: ['', [Validators.required, /* Validators.minLength(8), Validators.maxLength(9) */]],
+      rut: ['', [Validators.required]],
+      celular: ['', [Validators.required]],
       email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required, /* Validators.minLength(6) */]],
+      password: ['', [Validators.required, ]],
       confirmarPassword: ['', [Validators.required]],
     });
   }

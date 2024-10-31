@@ -8,66 +8,39 @@ import { AuthService } from 'src/app/services/autenticador.service';
   styleUrls: ['./form-log.component.scss'],
 })
 export class FormLogComponent implements OnInit {
-  correo: string = '';  // Variable para almacenar el correo ingresado
-  password: string = '';  // Variable para almacenar la contraseña ingresada
-  mensajeError: string | null = null;  // Mensaje de error en caso de credenciales incorrectas
+  
+  correo: string = ''; 
+  password: string = '';  
+  mensajeError: string | null = null; 
 
   constructor(private autenticador: AuthService, private router: Router) { }
-  ngOnInit() {
-    
+  ngOnInit() {  
   }
 
-
-
-  /* iniciarSesion() {
-
-    if (this.autenticador.verificarCredenciales(this.correo, this.password)) {
-
-      const usuarioAutenticado = this.autenticador.obtenerUsuarioAutenticado();
-      this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado);
-      
-      this.mensajeError = null;
-      console.log('Inicio de sesión exitoso:', usuarioAutenticado);
-      // Redirigir al perfil o realizar otra acción
-
-      this.router.navigate(['/perfil']);
-
-    } else {
-      // Credenciales incorrectas
-      this.mensajeError = 'Credenciales incorrectas';
-      console.log('Credenciales incorrectas');
-    }
-  }
-  ngOnInit() {
-    
-   }
-} */
   iniciarSesion() {
     if (this.autenticador.verificarCredenciales(this.correo, this.password)) {
       const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
-      // Obtener el usuario que coincide con las credenciales
+     
       const usuarioAutenticado = usuarios.find((usuario: { email: string }) => usuario.email === this.correo);
 
       if (usuarioAutenticado) {
-        this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado); // Ahora esto debería funcionar
+        this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado); 
         this.mensajeError = null;
         console.log('Inicio de sesión exitoso:', usuarioAutenticado);
 
-        // Redirigir al perfil o realizar otra acción
+        // enrutador a perfil
         this.router.navigate(['/perfil']);
       } else {
-        this.mensajeError = 'Usuario no encontrado'; // Manejo de error si no se encuentra el usuario
+        this.mensajeError = 'Usuario no encontrado'; 
       }
     } else {
-      // Credenciales incorrectas
+     
       this.mensajeError = 'Credenciales incorrectas';
       console.log('Credenciales incorrectas');
     }
   }
-  cerrarSesion() {
-    localStorage.removeItem('authUsuario'); // Elimina el usuario autenticado del local storage
-  }
+ 
 }
 
 

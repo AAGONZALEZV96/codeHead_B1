@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiPersonasService } from 'src/app/servis/api-personas.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -22,7 +23,7 @@ export class HomePage implements OnInit{
         this.items = datos.results;
         console.log("Consulta a la api");
         
-        // Almacenar los personajes en el local storage
+        // Almacenar los randoms en el local storage
         localStorage.setItem('datos', JSON.stringify(this.items));
       });
     }
