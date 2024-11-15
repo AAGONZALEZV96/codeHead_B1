@@ -6,62 +6,63 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="main-content ">
-  <div class="glass-content ">
-
-    <div class="dimeciones">
-      <h2>Indique dimensiones del envío</h2>
-
+<ion-content class="main-content">
+  <div class="glass-content">
+    <!-- Dimensiones -->
+    <div class="dimensiones">
+      <h1>Indique dimensiones del envío</h1>
       <ion-item>
-        <ion-input label="Largo (cm)"></ion-input>
+        <ion-label position="stacked">Largo (cm)</ion-label>
+        <ion-input type="number" placeholder="Ingresa el largo"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Ancho (cm)"></ion-input>
+        <ion-label position="stacked">Ancho (cm)</ion-label>
+        <ion-input type="number" placeholder="Ingresa el ancho"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input label="Longitud (cm)"></ion-input>
+        <ion-label position="stacked">Altura (cm)</ion-label>
+        <ion-input type="number" placeholder="Ingresa la altura"></ion-input>
       </ion-item>
-
-
     </div>
 
-    <div class="origen-envio">
+    <!-- Origen -->
+    <div class="destino-envio">
       <h2>Indique origen del envío</h2>
       <ion-item>
-        <ion-label>Region</ion-label>
-        <ion-select placeholder="Selecciona una ciudad">
-          <ion-select-option value="Región Metropolitana">Región Metropolitana </ion-select-option>
+        <ion-label position="stacked">Selecciona una Región</ion-label>
+        <ion-select [(ngModel)]="selectedRegionOrigen" (ionChange)="getComunas('origen')" placeholder="Selecciona una región">
+          <ion-select-option *ngFor="let region of regiones" [value]="region.NombreRegion">
+            {{ region.NombreRegion }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
-        <ion-label>Comuna</ion-label>
-        <ion-select placeholder="Selecciona una ciudad">
-          <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
-          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
-          <ion-select-option value="El Bosque">El Bosque</ion-select-option>
-          <ion-select-option value="Estación Central">Estación Central</ion-select-option>
-          <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
+      <ion-item *ngIf="selectedComunasOrigen.length">
+        <ion-label position="stacked">Selecciona una Comuna</ion-label>
+        <ion-select [(ngModel)]="selectedComunaOrigen" placeholder="Selecciona una comuna">
+          <ion-select-option *ngFor="let comuna of selectedComunasOrigen" [value]="comuna">
+            {{ comuna }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
     </div>
 
+    <!-- Destino -->
     <div class="destino-envio">
       <h2>Indique destino del envío</h2>
       <ion-item>
-        <ion-label>Region</ion-label>
-        <ion-select placeholder="Selecciona una ciudad">
-          <ion-select-option value="Región Metropolitana">Región Metropolitana</ion-select-option>
+        <ion-label position="stacked">Selecciona una Región</ion-label>
+        <ion-select [(ngModel)]="selectedRegionDestino" (ionChange)="getComunas('destino')" placeholder="Selecciona una región">
+          <ion-select-option *ngFor="let region of regiones" [value]="region.NombreRegion">
+            {{ region.NombreRegion }}
+          </ion-select-option>
         </ion-select>
-
       </ion-item>
-      <ion-item>
-        <ion-label>Comuna</ion-label>
-        <ion-select placeholder="Selecciona una ciudad">
-          <ion-select-option value="Cerrillos">Cerrillos</ion-select-option>
-          <ion-select-option value="Cerro Navia">Cerro Navia</ion-select-option>
-          <ion-select-option value="El Bosque">El Bosque</ion-select-option>
-          <ion-select-option value="Estación Central">Estación Central</ion-select-option>
-          <ion-select-option value="Lo Espejo">Lo Espejo</ion-select-option>
+      <ion-item *ngIf="selectedComunasDestino.length">
+        <ion-label position="stacked">Selecciona una Comuna</ion-label>
+        <ion-select [(ngModel)]="selectedComunaDestino" placeholder="Selecciona una comuna">
+          <ion-select-option *ngFor="let comuna of selectedComunasDestino" [value]="comuna">
+            {{ comuna }}
+          </ion-select-option>
         </ion-select>
       </ion-item>
     </div>

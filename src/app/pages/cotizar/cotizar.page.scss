@@ -6,7 +6,16 @@
   height: 100%;            /* Asegura que el contenedor ocupe todo el espacio disponible */
   text-align: center;
 }
-
+h1{
+  margin-bottom: 10px !important;
+}
+h2{
+  margin: 10px 0px 10px 0px !important;
+}
+.glass-content{
+  margin: 0px auto !important;
+  padding: 5px !important;
+}
 strong{
   font-size: 35px;
 }
