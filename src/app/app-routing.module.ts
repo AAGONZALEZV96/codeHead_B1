@@ -4,7 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
-  
+  {
+    path: 'intro',
+    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+  },
   {
     path: '',
     /*  contiene las pestañas */
@@ -13,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '',
+        redirectTo: '/intro',
         pathMatch: 'full',
 
       },
@@ -28,6 +31,10 @@ const routes: Routes = [
       {
         path: 'cotizar',
         loadChildren: () => import('./pages/cotizar/cotizar.module').then((m) => m.CotizarPageModule),
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
       },
       
     ],

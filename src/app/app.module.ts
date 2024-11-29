@@ -12,13 +12,13 @@ import { DropDownComponent } from './components/drop-down/drop-down.component';
 import { FormLComponent } from './components/form-l/form-l.component';
 import { Modal2Component } from './components/modal2/modal2.component';
 import { FormLogComponent } from './components/form-log/form-log.component';
-
+import { AutenticadorService  } from './services/autenticador.service';
 
 
 @NgModule({
   declarations: [AppComponent, TabsComponent, Modal1Component, Modal2Component,DropDownComponent, FormLComponent, MenuComponent, FormLogComponent ],
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), AppRoutingModule,ReactiveFormsModule],
-  providers:  [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },],
+  providers:  [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AutenticadorService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
