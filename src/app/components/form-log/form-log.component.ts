@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {AutenticadorService  } from 'src/app/services/autenticador.service';
 
 @Component({
   selector: 'app-form-log',
@@ -13,15 +13,34 @@ export class FormLogComponent implements OnInit {
   password: string = '';  
   mensajeError: string | null = null; 
 
-  constructor() {
-
+  constructor(private autenticador: AutenticadorService , private router: Router) { }
+  ngOnInit() {  
   }
 
-  ngOnInit() {
-      
+  iniciarSesion() {
+    if (this.autenticador.verificarCredenciales(this.correo, this.password)) {
+      const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+
+     
+      const usuarioAutenticado = usuarios.find((usuario: { email: string }) => usuario.email === this.correo);
+
+      if (usuarioAutenticado) {
+        this.autenticador.guardarUsuarioAutenticado(usuarioAutenticado); 
+        this.mensajeError = null;
+        console.log('Inicio de sesión exitoso:', usuarioAutenticado);
+
+        // enrutador a perfil
+        this.router.navigate(['/perfil']);
+      } else {
+        this.mensajeError = 'Usuario no encontrado'; 
+      }
+    } else {
+     
+      this.mensajeError = 'Credenciales incorrectas';
+      console.log('Credenciales incorrectas');
+    }
   }
-
-
+ 
 }
 
 
