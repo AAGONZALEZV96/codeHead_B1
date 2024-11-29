@@ -1,56 +1,42 @@
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
+ * Estilos globales para la aplicación Ionic.
+ * Incluye importaciones de CSS base y personalizaciones específicas.
+ * Para más información, visita la documentación:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-/* Core CSS required for Ionic components to work properly */
+/* Core CSS requerido para que los componentes de Ionic funcionen correctamente */
 @import "@ionic/angular/css/core.css";
 
-/* Basic CSS for apps built with Ionic */
+/* CSS básico para apps construidas con Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* CSS opcional que puedes comentar si no se usa */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* Tema Oscuro de Ionic */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-/* componente iconos home */
-*{
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
+/* Reinicio de márgenes globales */
+// * {
+//   margin-top: 0 !important;
+//   margin-bottom: 0 !important;
+// }
 
- 
-.header-main h1 {
-  text-align: center;
-  width: 100%;
-  
-}
+/* Encabezado principal */
 
+
+/* Estilo de fondo con efecto de vidrio */
 .glass-content {
-  
   background: rgba(32, 32, 34, 0);
   box-shadow: 0 4px 30px rgba(246, 251, 255, 0.123);
   backdrop-filter: blur(25.3px);
@@ -59,21 +45,25 @@
   min-height: 100vh;
 }
 
-.d-flex-center {
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-}
+// /* Alineación central con flexbox */
+// .d-flex-center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
+/* Fondo y color para el contenido principal */
 ion-content {
   --ion-background-color: url(/assets/img/bg.gif);
   --color: white;
 }
 
+// /* Fondo del encabezado */
 ion-header {
   background: url(/assets/img/bg.gif);
 }
 
+// /* Estilo del ion-toolbar con transparencia y efecto de vidrio */
 ion-toolbar {
   --background: transparent;
   background: rgba(19, 63, 176, 0.27);
@@ -83,7 +73,7 @@ ion-toolbar {
   color: white;
 }
 
-
+// /* Estilo para ion-card con borde redondeado y sombra */
 ion-card {
   margin: 20px;
   background: rgba(7, 7, 7, 0.2);
@@ -95,21 +85,24 @@ ion-card {
   color: white;
 }
 
+// /* Estilo para ion-item con fondo transparente */
 ion-item {
   --background: transparent;
   color: white;
 }
 
+/* Estilo de íconos */
 ion-icon {
   color: white;
 }
 
+/* Loader con spinner centralizado */
 .loader {
   text-align: center;
   padding-top: 15vh;
 
   ion-spinner {
-      padding: 50px;
-      --color: white;
+    padding: 50px;
+    --color: white;
   }
 }

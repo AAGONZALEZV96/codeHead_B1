@@ -1,36 +1,58 @@
-.main-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra el contenido verticalmente */
-  align-items: center;     /* Centra el contenido horizontalmente */
-  height: 100%;            /* Asegura que el contenedor ocupe todo el espacio disponible */
-  text-align: center;
-}
+.header-main{
+    text-align: center;
+    width: 100%;
+  }
 h1{
-  margin-bottom: 10px !important;
-}
-h2{
-  margin: 10px 0px 10px 0px !important;
-}
-.glass-content{
-  margin: 0px auto !important;
-  padding: 5px !important;
-}
-strong{
-  font-size: 35px;
-}
-.dimeciones{
-padding-top: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+  }
+  .contenido{
+    background: rgba(32, 32, 34, 0);
+    box-shadow: 0 4px 30px rgba(246, 251, 255, 0.123);
+    backdrop-filter: blur(25.3px);
+    -webkit-backdrop-filter: blur(25.3px);
+    min-height: 100vh; 
+    padding: 10px;
+  }
+  strong, label{
+    display: block;
+    margin: 0px 10px 0px 0px;
+    font-size: 20px;
+  }
+    select,input{
+    width: 70%;
+    text-align: center;
+  }
+
+  .glass-content_cotizar{
+    background: rgba(32, 32, 34, 0);
+    box-shadow: 0 4px 30px rgba(246, 251, 255, 0.123);
+    backdrop-filter: blur(25.3px);
+    -webkit-backdrop-filter: blur(25.3px);
+    width: 100%;
+    min-height: 100vh;
+  }
+.origen{
+    margin: 0px 0px 0px 0px;
 
 }
-.origen-envio{
-  margin-top: 20px !important; 
-  margin-bottom: 20px !important;
+.destino{
+    margin: 20px 20px 0px 0px;
+    border-top: 1px solid gray;
 
 }
-
-.destino-envio{
-  margin-top: 20px !important; 
-  margin-bottom: 20px !important;
-
+.dimensiones{
+    margin: 20px 20px 0px 0px;
+    border-top: 1px solid gray;
+}
+button{
+    width: 42%;
+    display: inline-block;
+    margin: 20px 10px 10px 10px;
+    background-color: rgb(24, 121, 247);
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 30px;
+    cursor: pointer;
 }

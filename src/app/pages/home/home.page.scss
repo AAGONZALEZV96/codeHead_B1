@@ -2,16 +2,21 @@
   width: 100%;
   height: 48%;
 }
-strong{
-  font-size: 35px;
+.header-main{
+  text-align: center;
+  width: 100%;
+}
+h1{
+  font-size: 40px;
+  font-weight: bolder;
 }
 .card{
-  padding-bottom: 20px !important;
+  padding-bottom: 20px;
 }
 .gobalServicio{
   border: 1px rgb(102, 102, 102) solid;
-  margin-top: 5px !important;
-  margin-bottom:20px !important;
+  margin-top: 5px;
+  margin-bottom:20px ;
   padding-top: 10px;
   padding-bottom: 10px;
 }
