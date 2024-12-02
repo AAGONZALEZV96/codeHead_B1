@@ -8,9 +8,11 @@ import { Modal2Component } from 'src/app/components/modal2/modal2.component';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit{
 
   constructor(private modalController: ModalController) {}
+  ngOnInit() {
+  }
 
   async openModalreg()/* modal1 */ {
     const modal = await this.modalController.create({

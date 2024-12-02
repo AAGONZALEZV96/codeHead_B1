@@ -2,12 +2,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-interface UsuarioRandom {
+export interface UsuarioRandom {
   results: Result[]
   info: Info
 }
 
 interface Result {
+  [x: string]: any;
   gender: string
   name: Name
   location: Location
@@ -29,6 +30,9 @@ interface Name {
 }
 
 interface Location {
+  [x: string]: any;
+  _coordinates: any;
+  _timezone: any;
   street: Street
   city: string
   state: string

@@ -23,7 +23,7 @@ export class HomePage implements OnInit{
         this.items = datos.results;
         console.log("Consulta a la api");
         
-        // Almacenar los randoms en el local storage
+       
         localStorage.setItem('datos', JSON.stringify(this.items));
       });
     }

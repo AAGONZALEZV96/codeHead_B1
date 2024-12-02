@@ -25,7 +25,7 @@ export class Modal1Component implements OnInit {
   ngOnInit(){
    
   }
-  onsummit() {
+  onSubmit() {
     if (this.registroForm.valid) {
       const { nombre, apellido, direccion, rut, celular, email, password, confirmarPassword } = this.registroForm.value;
       localStorage.setItem('nombre', nombre);
