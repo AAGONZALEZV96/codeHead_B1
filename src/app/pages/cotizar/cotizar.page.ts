@@ -83,30 +83,29 @@ export class CotizarPage implements OnInit {
 	}
   ];
 
-  // Variables de origen
+  /* Variables origen */
   selectedRegionOrigen: string = '';
   selectedComunaOrigen: string = '';
   selectedComunasOrigen: string[] = [];
 
-  // Variables de destino
+ /* Variables destino */
   selectedRegionDestino: string = '';
   selectedComunaDestino: string = '';
   selectedComunasDestino: string[] = [];
 
-  // Dimensiones y peso
+  /* Dimensiones y peso */
   largo: number | null = null;
   ancho: number | null = null;
   altura: number | null = null;
   peso: number | null = null;
 
-  // Resultado
+  /* Resultado */
   costo: number | null = null;
 
   constructor() {}
 
   ngOnInit() {}
 
-  // Actualiza las comunas disponibles según la región seleccionada
   getComunas(type: 'origen' | 'destino') {
     const selectedRegion = type === 'origen' ? this.selectedRegionOrigen : this.selectedRegionDestino;
     const region = this.regiones.find((r) => r.NombreRegion === selectedRegion);
@@ -118,7 +117,6 @@ export class CotizarPage implements OnInit {
     }
   }
 
-  // Calcula el costo basado en la región de origen y las dimensiones
   calcularCosto() {
     if (!this.largo || !this.ancho || !this.altura || !this.peso) {
       alert('Por favor, ingrese todas las dimensiones y el peso.');
@@ -133,30 +131,26 @@ export class CotizarPage implements OnInit {
       return;
     }
 
-    const volumen = this.largo * this.ancho * this.altura; // cm³
+    const volumen = this.largo * this.ancho * this.altura; 
     const tarifaBase = Math.max(regionOrigen.valor, regionDestino.valor);
 
-    // Fórmula simple: tarifa base + peso * constante
-    this.costo = tarifaBase + this.peso * 100; // Ajusta según necesidades
+    this.costo = tarifaBase + this.peso * 100; 
   }
   limpiarDatos() {
-    // Origen
+   
     this.selectedRegionOrigen = '';
     this.selectedComunaOrigen = '';
     this.selectedComunasOrigen = [];
   
-    // Destino
     this.selectedRegionDestino = '';
     this.selectedComunaDestino = '';
     this.selectedComunasDestino = [];
   
-    // Dimensiones y peso
     this.largo = null;
     this.ancho = null;
     this.altura = null;
     this.peso = null;
   
-    // Costo
     this.costo = null;
   }
 }

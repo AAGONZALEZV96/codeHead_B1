@@ -19,7 +19,7 @@ describe('ApiPersonasService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fetch users data from API', () => {
+  it('debería recuperar los datos de los usuarios de la API', () => {
     const mockData: UsuarioRandom = {
       results: [
         {

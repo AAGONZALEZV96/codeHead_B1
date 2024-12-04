@@ -29,7 +29,7 @@ export class FormLogComponent implements OnInit {
         this.mensajeError = null;
         console.log('Inicio de sesión exitoso:', usuarioAutenticado);
 
-        // enrutador a perfil
+        /* enrutador a perfil */
         this.router.navigate(['/perfil']);
       } else {
         this.mensajeError = 'Usuario no encontrado'; 

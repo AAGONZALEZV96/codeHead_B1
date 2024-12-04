@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 export class Modal1Component implements OnInit {
   registroForm: FormGroup;
 
-  constructor(private modalController: ModalController,private formBuilder: FormBuilder) {
+  constructor(public modalController: ModalController,private formBuilder: FormBuilder) {
     this.registroForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
