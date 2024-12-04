@@ -13,8 +13,8 @@ export class IntroPage implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      this.router.navigate(['/home']);
-    },2000);
+      this.router.navigate(['/login']);
+    },3000);
 
     
   }
