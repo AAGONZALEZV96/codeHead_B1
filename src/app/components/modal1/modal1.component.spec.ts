@@ -43,7 +43,7 @@ describe('Modal1Component', () => {
     expect(localStorage.setItem).toHaveBeenCalledWith('direccion', 'Calle 123');
     expect(localStorage.setItem).toHaveBeenCalledWith('rut', '12345678-9');
     expect(localStorage.setItem).toHaveBeenCalledWith('celular', '987654321');
-    expect(localStorage.setItem).toHaveBeenCalledWith('email', 'juan.perez@example.com');
+    expect(localStorage.setItem).toHaveBeenCalledWith('email', 'juan.perez@email.com');
     expect(localStorage.setItem).toHaveBeenCalledWith('password', 'contraseñaSegura');
     expect(localStorage.setItem).toHaveBeenCalledWith('confirmarPassword', 'contraseñaSegura');
   });
