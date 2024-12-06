@@ -38,11 +38,11 @@ describe('FormLogComponent', () => {
   it('deberiaa mostrar un error si las credenciales son incorrectas', () => {
     autenticadorService.verificarCredenciales.and.returnValue(false);
 
-    component.correo = 'wrong@example.com';
-    component.password = 'wrongPassword';
+    component.correo = 'falso@fake.com';
+    component.password = 'falsoPassword';
     component.iniciarSesion();
 
-    expect(autenticadorService.verificarCredenciales).toHaveBeenCalledWith('wrong@example.com', 'wrongPassword');
+    expect(autenticadorService.verificarCredenciales).toHaveBeenCalledWith('falso@fake.com', 'falsoPassword');
     expect(component.mensajeError).toBe('Credenciales incorrectas');
     expect(router.navigate).not.toHaveBeenCalled();
   });
@@ -52,7 +52,7 @@ describe('FormLogComponent', () => {
 
     spyOn(localStorage, 'getItem').and.returnValue(JSON.stringify([]));
 
-    component.correo = 'notfound@example.com';
+    component.correo = 'notfound@fake.com';
     component.password = 'password';
     component.iniciarSesion();
 
