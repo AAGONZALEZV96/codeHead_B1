@@ -2,19 +2,19 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
  
 import { ApiPersonasService, UsuarioRandom } from './api-personas.service';
-
+/* cont */
 describe('ApiPersonasService', () => {
   let service: ApiPersonasService;
   let httpMock: HttpTestingController;
-
+/* simulatiiiing */
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(ApiPersonasService);
     httpMock = TestBed.inject(HttpTestingController);
-  });
-
+  });/* tes proto */
+/* truly */
   it('should be created', () => {
     expect(service).toBeTruthy();
   });

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AutenticadorService } from 'src/app/services/autenticador.service';
 import { FormLogComponent } from './form-log.component';
 
+/*  */
 describe('FormLogComponent', () => {
   let component: FormLogComponent;
   let fixture: ComponentFixture<FormLogComponent>;
