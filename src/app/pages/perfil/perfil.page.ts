@@ -30,7 +30,7 @@ export class PerfilPage implements OnInit {
   }
   cerrarSesion() {
     localStorage.removeItem('authUsuario');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/perfil']);
   }
   async capturePhoto() {
     try {
