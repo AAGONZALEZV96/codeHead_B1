@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { addIcons } from 'ionicons';
-import { calculator, library, logIn, playCircle, radio, search } from 'ionicons/icons';
+import { calculator, logIn, person, search, } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
@@ -11,7 +11,7 @@ export class TabsComponent {
 
   constructor() {
    
-    addIcons({calculator , search, logIn });
+    addIcons({calculator , search, logIn, person });
   }
 
 }

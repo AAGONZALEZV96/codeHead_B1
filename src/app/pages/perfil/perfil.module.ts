@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { LoginPage } from '../login/login.page';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AutenticadorService  } from 'src/app/services/autenticador.service';
+import { CameraService } from 'src/app/services/camara.service';
 
 @NgModule({
   imports: [
