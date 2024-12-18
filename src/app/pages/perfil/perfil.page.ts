@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
 import { CameraService } from 'src/app/services/camara.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { CameraService } from 'src/app/services/camara.service';
 })
 export class PerfilPage implements OnInit {
   usuario: any;
+  reservas: any[]=[];
 
 
   constructor(
@@ -26,6 +27,13 @@ export class PerfilPage implements OnInit {
       console.log('usuaio cargado de local storage:', this.usuario);
       this.router.navigate(['/perfil']);
     }
+
+    const reservasGuardadas = localStorage.getItem('reservas');
+    if (reservasGuardadas) {
+      this.reservas = JSON.parse(reservasGuardadas);
+      console.log('Reservas cargadas:', this.reservas);
+    }
+
     await this.cameraService.loadSaved();
 
 
