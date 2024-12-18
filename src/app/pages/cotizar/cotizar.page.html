@@ -31,6 +31,12 @@
         </ion-select>
       </ion-item>
 
+      <ion-item *ngIf="selectedEstacionamiento">
+        <ion-label position="floating">Cantidad de horas </ion-label>
+        <br>
+        <ion-input type="number" min="1" [(ngModel)]="horasArrendar" placeholder="Ingresa las horas"></ion-input>
+      </ion-item>
+
       <ion-item>
         <ion-button expand="block" (click)="calcularReserva()">Calcular Reserva</ion-button>
       </ion-item>

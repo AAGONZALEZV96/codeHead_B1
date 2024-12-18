@@ -42,6 +42,7 @@ export class CotizarPage implements OnInit {
   selectedEstacionamiento: string = '';
   costoReserva: number | null = null;
   reservaConfirmada: boolean = false;
+  horasArrendar: number | null = null;
 
   constructor() {}
 
@@ -66,9 +67,17 @@ export class CotizarPage implements OnInit {
   }
 
   calcularReserva() {
+    // Encuentra el estacionamiento seleccionado
     const estacionamiento = this.estacionamientos.find((e) => e.nombre === this.selectedEstacionamiento);
     console.log('Estacionamiento seleccionado:', estacionamiento);
-    this.costoReserva = estacionamiento ? estacionamiento.costo : null;
+  
+    // Calcula el costo de la reserva considerando las horas
+    if (estacionamiento && this.horasArrendar && this.horasArrendar > 0) {
+      this.costoReserva = estacionamiento.costo * this.horasArrendar; // Multiplica costo por horas
+    } else {
+      this.costoReserva = null; // Maneja caso cuando datos están incompletos
+    }
+  
     this.reservaConfirmada = false;
   }
   
