@@ -109,6 +109,7 @@ export class CotizarPage implements OnInit {
     this.selectedComunas = [];
     this.estacionamientos = [];
     this.selectedEstacionamiento = '';
+    this.horasArrendar = null; // Asegúrate de limpiar este campo también
     this.costoReserva = null;
     this.reservaConfirmada = false;
   }
