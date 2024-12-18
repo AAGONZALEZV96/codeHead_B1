@@ -7,32 +7,13 @@
 </ion-header>
 <ion-content class="main-content">
   
-  <div class="glass-content">    
-    
-    <img class="imghome" src="../../../assets/codehead.png" alt="Imagen de CodeHead">
-    
-    <div class="gobalServicio">
-      <app-servicios />
-    </div>
-    
-    <div class="card">
-      @for (item of items; track item.id) {
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>{{item.email}}</ion-card-subtitle>
-            <ion-card-title>{{item.name.first}} {{item.name.last}}</ion-card-title>
-            <span> <img src="{{item.picture.large}}" alt="Imagen de persona"></span>
-          </ion-card-header>
-        
-          <ion-card-content>
-            <h3>{{item.location.city}} {{item.location.country}}</h3> 
-            La app de tarificador ha transformado nuestra experiencia al ofrecer un servicio de cálculo de tarifas eficiente y preciso. 
-            Con esta herramienta, nuestros clientes pueden obtener estimaciones claras y detalladas en tiempo real, lo que les permite tomar decisiones informadas sin demoras. 
-            Además, la interfaz intuitiva de la app hace que todo el proceso sea rápido y accesible para cualquier usuario, independientemente de su experiencia con la tecnología. 
-            En pocas palabras, la app de tarificador refleja nuestro compromiso de ofrecer un servicio de alta calidad, orientado a la satisfacción y transparencia para nuestros clientes.
-          </ion-card-content>
-        </ion-card>
-      }
-    </div>
-  </div>
+  <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6651.625726308294!2d-70.69774829999997!3d-33.532250799999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1732135670196!5m2!1ses-419!2scl" 
+  width="100%" 
+  height="100%" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 </ion-content>  

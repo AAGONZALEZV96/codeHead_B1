@@ -1,105 +1,77 @@
-<ion-header class="header-main" mode="md">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      <h1>Cotizar</h1>
-    </ion-title>
+    <ion-title>Cotización de Estacionamientos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!-- Selección de Región y Comuna de Origen -->
 <ion-content>
-  <div class="contenido">
-    <div class="origen">
-      <strong>Origen</strong>
-      <label for="region-origen">Región:</label>
-      <select
-        id="region-origen"
-        [(ngModel)]="selectedRegionOrigen"
-        (change)="getComunas('origen')"
-      >
-        <option value="">Selecciona una región</option>
-        <option *ngFor="let region of regiones" [value]="region.NombreRegion">
-          {{ region.NombreRegion }}
-        </option>
-      </select>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selecciona tu Región y Comuna</ion-card-title>
+    </ion-card-header>
 
-      <label for="comuna-origen">Comuna:</label>
-      <select id="comuna-origen" [(ngModel)]="selectedComunaOrigen">
-        <option value="">Selecciona una comuna</option>
-        <option *ngFor="let comuna of selectedComunasOrigen" [value]="comuna">
-          {{ comuna }}
-        </option>
-      </select>
-    </div>
+    <ion-card-content>
+      <!-- Dropdown para seleccionar región -->
+      <ion-item>
+        <ion-label>Región</ion-label>
+        <ion-select [(ngModel)]="selectedRegion" (ionChange)="onRegionChange()">
+          <ion-select-option *ngFor="let region of regiones">{{ region.NombreRegion }}</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    <!-- Selección de Región y Comuna de Destino -->
-    <div class="destino">
-      <strong>Destino</strong>
-      <label for="region-destino">Región:</label>
-      <select
-        id="region-destino"
-        [(ngModel)]="selectedRegionDestino"
-        (change)="getComunas('destino')"
-      >
-        <option value="">Selecciona una región</option>
-        <option *ngFor="let region of regiones" [value]="region.NombreRegion">
-          {{ region.NombreRegion }}
-        </option>
-      </select>
+      <!-- Dropdown para seleccionar comuna -->
+      <ion-item *ngIf="selectedComunas.length > 0">
+        <ion-label>Comuna</ion-label>
+        <ion-select [(ngModel)]="selectedComuna" (ionChange)="onComunaChange()">
+          <ion-select-option *ngFor="let comuna of selectedComunas">{{ comuna.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-      <label for="comuna-destino">Comuna:</label>
-      <select id="comuna-destino" [(ngModel)]="selectedComunaDestino">
-        <option value="">Selecciona una comuna</option>
-        <option *ngFor="let comuna of selectedComunasDestino" [value]="comuna">
-          {{ comuna }}
-        </option>
-      </select>
-    </div>
-    <!-- Dimensiones y Peso -->
-    <div class="dimensiones">
-      <strong>Dimensiones y Peso</strong>
-      <label for="largo">Largo (cm):</label>
-      <input
-        type="number"
-        id="largo"
-        [(ngModel)]="largo"
-        placeholder="Ingrese el largo"
-      />
+      <!-- Dropdown para seleccionar estacionamiento -->
+      <ion-item *ngIf="estacionamientos.length > 0">
+        <ion-label>Estacionamiento</ion-label>
+        <ion-select [(ngModel)]="selectedEstacionamiento">
+          <ion-select-option *ngFor="let estacionamiento of estacionamientos">
+            {{ estacionamiento.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
-      <label for="ancho">Ancho (cm):</label>
-      <input
-        type="number"
-        id="ancho"
-        [(ngModel)]="ancho"
-        placeholder="Ingrese el ancho"
-      />
+      <!-- Botón para calcular reserva -->
+      <ion-button color="primary" expand="full" (click)="calcularReserva()" [disabled]="!selectedEstacionamiento">
+        Calcular Reserva
+      </ion-button>
 
-      <label for="altura">Altura (cm):</label>
-      <input
-        type="number"
-        id="altura"
-        [(ngModel)]="altura"
-        placeholder="Ingrese la altura"
-      />
+      <!-- Tarjeta con el costo calculado -->
+      <ion-card *ngIf="costoReserva !== null">
+        <ion-card-header>
+          <ion-card-title>Costo Calculado</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>El costo de la reserva es: <strong>${{ costoReserva }}</strong></p>
+        </ion-card-content>
+      </ion-card>
 
-      <label for="peso">Peso (kg):</label>
-      <input
-        type="number"
-        id="peso"
-        [(ngModel)]="peso"
-        placeholder="Ingrese el peso"
-      />
-      <!-- Botones para calcular y limpiar datos -->
-      <div>
-        <button (click)="calcularCosto()">Calcular Costo</button>
-        <button (click)="limpiarDatos()" class="secondary">Limpiar</button>
-      </div>
+      <!-- Botón para confirmar reserva -->
+      <ion-button color="primary" expand="full" (click)="confirmarReserva()" [disabled]="!selectedEstacionamiento">
+        Confirmar Reserva
+      </ion-button>
 
-      <!-- Resultado -->
-      <div *ngIf="costo !== null">
-        <strong>Resultado</strong>
-        <p>Costo estimado de envío: ${{ costo }}</p>
-      </div>
-    </div>
-  </div>
+      <!-- Tarjeta de confirmación de reserva -->
+      <ion-card *ngIf="reservaConfirmada">
+        <ion-card-header>
+          <ion-card-title>Reserva Confirmada</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Tu reserva ha sido confirmada para:</p>
+          <p><strong>{{ selectedEstacionamiento }}</strong></p>
+          <p>Costo Total: <strong>${{ costoReserva }}</strong></p>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Botón para limpiar datos -->
+      <ion-button color="primary" expand="full" (click)="limpiarDatos()">Limpiar</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+

@@ -26,13 +26,15 @@ export class CameraService {
       source: CameraSource.Camera,
       quality: 100
     });
-    this.photos.unshift({
+    /* this.photos.unshift({
       filepath: "soon...",
       webviewPath: capturedPhoto.webPath!
-    });
+    }); */
+    //
     const savedImageFile = await this.savePicture(capturedPhoto);
+    //
     this.photos.unshift(savedImageFile);
-
+    // 
     Preferences.set({
       key: this.PHOTO_STORAGE,
       value: JSON.stringify(this.photos),
@@ -50,8 +52,7 @@ export class CameraService {
       directory: Directory.Data
     });
     if (this.platform.is('hybrid')) {
-      // Display the new image by rewriting the 'file://' path to HTTP
-      // Details: https://ionicframework.com/docs/building/webview#file-protocol
+      
       return {
         filepath: savedFile.uri,
         webviewPath: Capacitor.convertFileSrc(savedFile.uri),

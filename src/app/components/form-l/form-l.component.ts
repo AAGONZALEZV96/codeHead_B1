@@ -23,6 +23,8 @@ export class FormLComponent implements OnInit {
       direccion: ['', [Validators.required]],
       rut: ['', [Validators.required, this.rutValidador]],
       celular: ['', [Validators.required]],
+      vehiculo: ['',[Validators.required]],
+      patente: ['',[Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, this.passwordValidator]],
       confirmarPassword: ['', [Validators.required]],
@@ -51,7 +53,7 @@ export class FormLComponent implements OnInit {
 
   onSubmit() {
     if (this.registroForm.valid) {
-      const { nombre, apellido, direccion, rut, celular, email, password } = this.registroForm.value;
+      const { nombre, apellido, direccion, rut, celular, vehiculo, patente, email, password } = this.registroForm.value;
 
       const hashedPassword = this.autenticadorService .hashearPassword(password);
       console.log("Contraseña hasheada:", hashedPassword);
@@ -71,7 +73,7 @@ export class FormLComponent implements OnInit {
         console.log('El RUT ya está registrado');
         return;
       }
-      const nuevoUsuario = { nombre, apellido, direccion, rut, celular, email, password: hashedPassword };
+      const nuevoUsuario = { nombre, apellido, direccion, rut, celular,vehiculo, patente, email, password: hashedPassword };
       usuarios.push(nuevoUsuario);
 
     
@@ -83,6 +85,8 @@ export class FormLComponent implements OnInit {
         direccion,
         rut,
         celular,
+        vehiculo,
+        patente,
         email,
         password
       });
