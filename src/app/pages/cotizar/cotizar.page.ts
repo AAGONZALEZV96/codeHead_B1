@@ -67,9 +67,11 @@ export class CotizarPage implements OnInit {
 
   calcularReserva() {
     const estacionamiento = this.estacionamientos.find((e) => e.nombre === this.selectedEstacionamiento);
+    console.log('Estacionamiento seleccionado:', estacionamiento);
     this.costoReserva = estacionamiento ? estacionamiento.costo : null;
     this.reservaConfirmada = false;
   }
+  
 
   confirmarReserva() {
     if (this.selectedEstacionamiento) {
