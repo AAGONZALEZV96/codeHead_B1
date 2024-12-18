@@ -9,6 +9,7 @@
 
 
 <ion-content class="main-content">
+  <div class="glass-content">
   <div class="glass-content" *ngIf="usuario">
     <ion-card>
       <ion-card-header>
@@ -52,7 +53,7 @@
       </ion-button>
 
       <!-- Botón para cerrar sesión -->
-      <ion-button expand="full" (click)="cerrarSesion()" shape="round">Cerrar Sesión</ion-button>
+      <ion-button id="sesion" expand="full" (click)="cerrarSesion()" shape="round">Cerrar Sesión</ion-button>
     </ion-card>
   </div>
 
@@ -60,4 +61,5 @@
   <div *ngIf="!usuario">
     <p>Sesión expirada, intentalo nuevamente.</p>
   </div>
+</div>
 </ion-content>

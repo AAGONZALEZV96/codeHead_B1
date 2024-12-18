@@ -1,58 +1,6 @@
-.header-main{
-    text-align: center;
-    width: 100%;
-  }
-h1{
-    font-size: 40px;
-    font-weight: bolder;
-  }
-  .contenido{
-    background: rgba(32, 32, 34, 0);
-    box-shadow: 0 4px 30px rgba(246, 251, 255, 0.123);
-    backdrop-filter: blur(25.3px);
-    -webkit-backdrop-filter: blur(25.3px);
-    min-height: 100vh; 
-    padding: 10px;
-  }
-  strong, label{
-    display: block;
-    margin: 0px 10px 0px 0px;
-    font-size: 20px;
-  }
-    select,input{
-    width: 70%;
-    text-align: center;
-  }
-
-  .glass-content_cotizar{
-    background: rgba(32, 32, 34, 0);
-    box-shadow: 0 4px 30px rgba(246, 251, 255, 0.123);
-    backdrop-filter: blur(25.3px);
-    -webkit-backdrop-filter: blur(25.3px);
-    width: 100%;
-    min-height: 100vh;
-  }
-.origen{
-    margin: 0px 0px 0px 0px;
-
+.glass-content{
+  padding: 20px;
 }
-.destino{
-    margin: 20px 20px 0px 0px;
-    border-top: 1px solid gray;
-
-}
-.dimensiones{
-    margin: 20px 20px 0px 0px;
-    border-top: 1px solid gray;
-}
-button{
-    width: 42%;
-    display: inline-block;
-    margin: 20px 10px 10px 10px;
-    background-color: rgb(24, 121, 247);
-    color: black;
-    border-radius: 10px;
-    font-size: 20px;
-    line-height: 30px;
-    cursor: pointer;
+.ion-button{
+  background-color: #5a8fff !important;
 }

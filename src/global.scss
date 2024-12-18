@@ -26,14 +26,6 @@
 /* Tema Oscuro de Ionic */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-/* Reinicio de márgenes globales */
-// * {
-//   margin-top: 0 !important;
-//   margin-bottom: 0 !important;
-// }
-
-/* Encabezado principal */
-
 
 /* Estilo de fondo con efecto de vidrio */
 .glass-content {
@@ -45,12 +37,6 @@
   min-height: 100vh;
 }
 
-// /* Alineación central con flexbox */
-// .d-flex-center {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
 
 /* Fondo y color para el contenido principal */
 ion-content {
@@ -61,6 +47,7 @@ ion-content {
 // /* Fondo del encabezado */
 ion-header {
   background: url(/assets/img/bg.gif);
+  text-align: center;
 }
 
 // /* Estilo del ion-toolbar con transparencia y efecto de vidrio */
@@ -71,11 +58,11 @@ ion-toolbar {
   backdrop-filter: blur(25.3px);
   -webkit-backdrop-filter: blur(25.3px);
   color: white;
+  padding: 10px;
 }
 
 // /* Estilo para ion-card con borde redondeado y sombra */
 ion-card {
-  margin: 20px;
   background: rgba(7, 7, 7, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -83,6 +70,7 @@ ion-card {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
+  margin: 0px auto !important;
 }
 
 // /* Estilo para ion-item con fondo transparente */
@@ -108,4 +96,13 @@ ion-icon {
 }
 .gobalServicio{
   padding: 20px !important;
+  }
+  .header-main{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+  }
+  h1{
+    font-size: 40px;
+    font-weight: bolder;
   }

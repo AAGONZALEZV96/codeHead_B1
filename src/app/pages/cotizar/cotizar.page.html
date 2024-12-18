@@ -6,70 +6,70 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="main-content">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Selecciona tu región, comuna y estacionamiento</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label>Región</ion-label>
-        <ion-select [(ngModel)]="selectedRegion" (ionChange)="onRegionChange()">
-          <ion-select-option *ngFor="let region of regiones" [value]="region.NombreRegion">
-            {{ region.NombreRegion }}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
+  <div class="glass-content">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Selecciona tu región, comuna y estacionamiento</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Región</ion-label>
+          <ion-select [(ngModel)]="selectedRegion" (ionChange)="onRegionChange()">
+            <ion-select-option *ngFor="let region of regiones" [value]="region.NombreRegion">
+              {{ region.NombreRegion }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
 
-      <ion-item *ngIf="selectedRegion">
-        <ion-label>Comuna</ion-label>
-        <ion-select [(ngModel)]="selectedComuna" (ionChange)="onComunaChange()">
-          <ion-select-option *ngFor="let comuna of selectedComunas" [value]="comuna.nombre">
-            {{ comuna.nombre }}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
+        <ion-item *ngIf="selectedRegion">
+          <ion-label>Comuna</ion-label>
+          <ion-select [(ngModel)]="selectedComuna" (ionChange)="onComunaChange()">
+            <ion-select-option *ngFor="let comuna of selectedComunas" [value]="comuna.nombre">
+              {{ comuna.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
 
-      <ion-item *ngIf="selectedComuna">
-        <ion-label>Estacionamiento</ion-label>
-        <ion-select [(ngModel)]="selectedEstacionamiento">
-          <ion-select-option *ngFor="let estacionamiento of estacionamientos" [value]="estacionamiento.nombre">
-            {{ estacionamiento.nombre }}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
+        <ion-item *ngIf="selectedComuna">
+          <ion-label>Estacionamiento</ion-label>
+          <ion-select [(ngModel)]="selectedEstacionamiento">
+            <ion-select-option *ngFor="let estacionamiento of estacionamientos" [value]="estacionamiento.nombre">
+              {{ estacionamiento.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
 
-      <ion-item *ngIf="selectedEstacionamiento">
-        <ion-label position="floating">Cantidad de horas </ion-label>
-        <br>
-        <ion-input type="number" min="1" [(ngModel)]="horasArrendar" placeholder="Ingresa las horas"></ion-input>
-      </ion-item>
+        <ion-item *ngIf="selectedEstacionamiento">
+          <ion-label position="floating">Cantidad de horas </ion-label>
+          <br>
+          <ion-input type="number" min="1" [(ngModel)]="horasArrendar" placeholder="Ingresa las horas"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-button expand="block" (click)="calcularReserva()">Calcular Reserva</ion-button>
-      </ion-item>
+        <ion-item>
+          <ion-button expand="block" (click)="calcularReserva()">Calcular Reserva</ion-button>
+        </ion-item>
 
-      <ion-item *ngIf="costoReserva !== null">
-        <ion-label>Costo de Reserva: {{ costoReserva | currency:'CLP' }}</ion-label>
-      </ion-item>
+        <ion-item *ngIf="costoReserva !== null">
+          <ion-label>Costo de Reserva: {{ costoReserva | currency:'CLP' }}</ion-label>
+        </ion-item>
 
-      <ion-item>
-        <ion-button expand="block" color="primary" (click)="confirmarReserva()">Confirmar Reserva</ion-button>
-      </ion-item>
+        <ion-item>
+          <ion-button expand="block" color="primary" (click)="confirmarReserva()">Confirmar Reserva</ion-button>
+        </ion-item>
 
-      <ion-item *ngIf="reservaConfirmada">
-        <ion-label color="primary">¡Reserva confirmada correctamente!</ion-label>
-      </ion-item>
+        <ion-item *ngIf="reservaConfirmada">
+          <ion-label color="primary">¡Reserva confirmada correctamente!</ion-label>
+        </ion-item>
+        
+      </ion-card-content>
       
-    </ion-card-content>
-    
-    <ion-item>
-      <ion-button expand="block" color="danger" (click)="limpiarDatos()">Limpiar</ion-button>
-      <ion-button expand="block" color="success">Pagar</ion-button>
-    </ion-item>
-
-      
-
-  </ion-card>
+      <ion-item>
+        <ion-button expand="block"(click)="limpiarDatos()">Limpiar</ion-button>
+        <ion-button expand="block">Pagar</ion-button>
+      </ion-item>
+    </ion-card>
+  </div>
 </ion-content>
 
